@@ -1,23 +1,53 @@
-import { BurgerButton } from "../burger-button/BurgerButton"
+
 import "./Nav.css"
+import React from "react"
+import { BsFillCartCheckFill } from 'react-icons/bs'
+
+
 
 export const Nav = () => {
     return (
-        <div className="navBar-container">
-            <div className="logo-container">
-                <img className="logo" src="https://res.cloudinary.com/dbyiqgeew/image/upload/v1669505807/logo_s12xii.png" alt="" />
-            </div> 
-
-            <div className="navBar">
-                <a href="" className="navBar-item">Home</a>
-                <a href="" className="navBar-item">Productos</a>
-                <a href="" className="navBar-item">About us</a>
-            </div>
-            <BurgerButton/>
-            <div className="cart-cotainer">
-                <h2></h2>
-            </div>
-
+        <nav className="navbar navbar-expand-lg bg-light">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#"><img className="logo" src="https://res.cloudinary.com/dbyiqgeew/image/upload/v1669530836/Logo_o3yfso.png" alt="" /></a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Catalogo
+                </a>
+                <ul className="dropdown-menu">
+                  <li><a className="dropdown-item" href="#">Pelotas</a></li>
+                  <li><hr className="dropdown-divider"/></li>
+                  <li><a className="dropdown-item" href="#">Ropa</a></li>
+                  <li><hr className="dropdown-divider"/></li>
+                  <li><a className="dropdown-item" href="#">Calzado </a></li>
+                </ul>
+              </li>
+              <li className="nav-item">
+              <a className="nav-link" href="#">Contactanos</a>
+              </li>
+              <li>
+              </li>
+            </ul>
+      
+            <form className="d-flex" role="search">
+              <input className="form-control me-2" type="search" placeholder="Buscar Articulo" aria-label="Search"/>
+              <button className="btn btn-outline-success" type="submit">Buscar</button>
+            </form> 
+          </div>
+          <div className="logoCarrito"><BsFillCartCheckFill  className="m-2 "/></div>
+          
         </div>
+        
+      </nav>
+      
     )
 }
+ 
