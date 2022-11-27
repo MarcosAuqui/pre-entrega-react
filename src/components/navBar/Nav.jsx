@@ -1,7 +1,8 @@
 
 import "./Nav.css"
 import React from "react"
-import { BsFillCartCheckFill } from 'react-icons/bs'
+
+import { CardWidget } from "../cardWidget/CardWidget"
 
 
 
@@ -42,7 +43,7 @@ export const Nav = () => {
               <button className="btn btn-outline-success" type="submit">Buscar</button>
             </form> 
           </div>
-          <div className="logoCarrito"><BsFillCartCheckFill  className="m-2 "/></div>
+          <CardWidget/>
           
         </div>
         

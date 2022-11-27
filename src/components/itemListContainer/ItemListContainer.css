@@ -1,0 +1,8 @@
+.greeting{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
