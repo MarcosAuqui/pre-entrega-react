@@ -1,2 +1,20 @@
+.navBar-container{
+    padding: .4rem;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+}
+.navBar-item{
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+}
 
+.logo{
+    height: 9vh;
+    width: 9vh;
+}
 

@@ -1,4 +1,3 @@
-import './App.css';
 import { Nav } from './components/navBar/Nav'	
 
 function App() {
