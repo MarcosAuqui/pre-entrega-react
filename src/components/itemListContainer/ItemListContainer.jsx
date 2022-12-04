@@ -7,7 +7,8 @@ export const ItemListContainer = ( {greeting} ) => {
   return (
     <div className='greeting'>
         <h1>{greeting}</h1>
-        <CustomButtom/>
+        <CustomButtom texto={ "que onda"}/>
+        <CustomButtom texto={ "Tu zanja redonda"}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 
-export const CustomButtom = () => {
+export const CustomButtom = ({texto}) => {
   return (
-    <button>tocame la chota hdp</button>
+    <button>{texto}</button>
   )
 }
