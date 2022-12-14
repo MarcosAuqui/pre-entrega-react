@@ -1,11 +1,16 @@
-
+import "./ProductsCard.css"
 
 export const ProductsCard = ({element}) => {
+
   return (
-    <div>
-              <h2>{element.title}</h2>
-              <img src={element.img} alt="" />
-              <h3>${element.price}</h3>
+    <div className="card">
+      <h2>{element.name}</h2>
+      <img src={element.img} alt="" />
+      <h3>${element.price}</h3>
+      <h4>Ver detalle</h4>
     </div>
-  )
+  );
+  
 }
+
+

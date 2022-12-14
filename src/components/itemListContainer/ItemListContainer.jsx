@@ -6,24 +6,17 @@ import {Products} from "../../data/Products.js"
 
 import { useEffect } from "react"
 
-import { ProductsCard } from "../productsCard/ProductsCard.jsx"
+import { Counter } from "../counter/Counter"
+
+import { ItemList } from "../itemList/ItemList"
 
 
 
 export const ItemListContainer = ( {greeting} ) => {
-  
-  const [isDark, setIsDark] = useState(false) 
 
   const [items, setItems] = useState( [] )
 
 
-
-  const toggleMode = () =>{
-
-    setIsDark(!isDark)
-
-  }
-  // console.log(isDark)
 
   useEffect( () => {
     
@@ -44,21 +37,11 @@ export const ItemListContainer = ( {greeting} ) => {
   console.log(items)
 
   return (
-    <div className={isDark ? "container-items-dark" : "container-items-light"}>
+    <div className= "container-items-light">
 
+      <Counter initial={1} stock={7}/>
 
-        {/* <h1>{greeting}</h1>
-        <button onClick={toggleMode}>{isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}</button>
-         */}
-
-
-        {
-          items.map((element) =>{
-            return (
-            <ProductsCard key={element.id} element={element}/>
-          );
-          })
-        }
+      <ItemList items={items}/>
 
     </div>
   )
