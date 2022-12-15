@@ -24,7 +24,7 @@ export const ItemListContainer = ( {greeting} ) => {
 
       setTimeout( () =>{
         resolve(Products)
-      },2000)
+      },500)
 
       })
       task
