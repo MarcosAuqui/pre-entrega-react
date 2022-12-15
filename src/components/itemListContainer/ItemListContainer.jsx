@@ -47,7 +47,7 @@ export const ItemListContainer = ( {greeting} ) => {
     
       console.log("SE HIZO LA PETICION")
       
-  },[])
+  },[categoryName])
   console.log(items)
 
   return (
