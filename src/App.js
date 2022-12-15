@@ -18,13 +18,15 @@ function App() {
 
       <Route path='/' element={<ItemListContainer/>}/>
 
-      <Route path='/category' element={<ItemListContainer/>}/>
+      <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
 
       <Route path={`/itemDetails/:id`} element={<ItemDetailsContainer/>}/>
 
       <Route path='*' element={<h1>URL no existe</h1>}/>
 
       <Route path='/card' element={<h1>Aca va a haber un carrito</h1>}/>
+
+      
     
 
     </Routes>

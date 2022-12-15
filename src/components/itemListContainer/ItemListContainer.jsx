@@ -9,10 +9,21 @@ import { useEffect } from "react"
 import { Counter } from "../counter/Counter"
 
 import { ItemList } from "../itemList/ItemList"
+import { useParams } from "react-router-dom"
 
 
 
 export const ItemListContainer = ( {greeting} ) => {
+
+  const {categoryName} = useParams()
+
+  
+
+
+
+
+
+  
 
   const [items, setItems] = useState( [] )
 
@@ -20,10 +31,13 @@ export const ItemListContainer = ( {greeting} ) => {
 
   useEffect( () => {
     
+    const productsFiltered = Products.filter(productos => productos.category === categoryName)
+
+
     const task = new Promise((resolve, reject) =>{
 
       setTimeout( () =>{
-        resolve(Products)
+        resolve(categoryName ? productsFiltered : Products)
       },500)
 
       })
