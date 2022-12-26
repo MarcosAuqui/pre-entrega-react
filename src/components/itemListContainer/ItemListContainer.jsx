@@ -18,16 +18,9 @@ export const ItemListContainer = ( {greeting} ) => {
   const {categoryName} = useParams()
 
   
-
-
-
-
-
-  
-
   const [items, setItems] = useState( [] )
 
-
+  const [sePuedeEstarAca, setSePuedeEstarAca] =useState("")
 
   useEffect( () => {
     
