@@ -1,5 +1,6 @@
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import {Link} from "react-router-dom"
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import React from 'react'
 
@@ -9,11 +10,12 @@ export const CardWidget = () => {
     <Link to="/card">
 
       <div className="container-Carrito">
-        <BsFillCartCheckFill
+        {/* <BsFillCartCheckFill
           style={{
           fontSize: "2rem",
           color: "black"
-        }}/>
+        }}/> */}
+        <ShoppingCartIcon fontSize="large" color="warning"/>
         <div className="bubble-counter">
           <span>12</span>
         </div>

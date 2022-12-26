@@ -9,7 +9,12 @@ import { useEffect } from "react"
 import { Counter } from "../counter/Counter"
 
 import { ItemList } from "../itemList/ItemList"
+
 import { useParams } from "react-router-dom"
+
+import { AccordionMui } from "../accordionMui/AccordionMui"
+
+import { Loader } from "../loader/Loader"
 
 
 
@@ -31,7 +36,7 @@ export const ItemListContainer = ( {greeting} ) => {
 
       setTimeout( () =>{
         resolve(categoryName ? productsFiltered : Products)
-      },500)
+      },3000)
 
       })
       task
@@ -46,9 +51,11 @@ export const ItemListContainer = ( {greeting} ) => {
   return (
     <div className= "container-items-light">
 
+      {items.length > 0 ? <ItemList items={items}/> : <Loader/>}
+
       <Counter initial={1} stock={7}/>
 
-      <ItemList items={items}/>
+      <AccordionMui/>
 
     </div>
   )

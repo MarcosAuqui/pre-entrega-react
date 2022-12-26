@@ -15,6 +15,7 @@
     margin-bottom: 0px;
 }
 
-.card > img{
+.imgCard{
     width: 100%;
+    border: 10px solid rgb(213, 210, 210);;
 }
