@@ -2,7 +2,8 @@
 import { ItemDetailsContainer } from './components/itemDetailsContainer/ItemDetailsContainer';
 import { ItemListContainer } from './components/itemListContainer/ItemListContainer';
 import { Nav } from './components/navBar/Nav'	
-import { BrowserRouter, Routes, Route } from  "react-router-dom"
+import { Form } from './components/form/Form'	
+import { BrowserRouter, Routes, Route,} from  "react-router-dom"
 
 function App() {
 
@@ -21,6 +22,8 @@ function App() {
       <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
 
       <Route path={`/itemDetails/:id`} element={<ItemDetailsContainer/>}/>
+
+      <Route path="/checkout" element= {<Form/>}/>
 
       <Route path='*' element={<h1>URL no existe</h1>}/>
 
