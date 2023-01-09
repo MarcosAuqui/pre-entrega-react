@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { Products } from "../../data/Products"
 import { useParams } from "react-router-dom"
+import { Counter } from "../counter/Counter"
 
 export const ItemDetailsContainer = () => {
 
@@ -23,6 +24,8 @@ export const ItemDetailsContainer = () => {
         <h2>{product.title}</h2>
         <h2>{product.price}</h2>
         <h2>{product.description}</h2>
+
+        <Counter />
     </div>
   )
 }

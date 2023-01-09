@@ -1,6 +1,5 @@
-import styles from  "./ProductsCard.module.css"
+
 import { Link } from "react-router-dom";
-import Box from '@mui/material/Box';
 
 import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@mui/material';
 
@@ -35,6 +34,7 @@ export const ProductsCard = ({element}) => {
         </Typography>
       </CardContent>
       <CardActions style={{display: "flex", justifyContent:"center"}}>
+        
         <Button size="small" variant="outlined">Agregar al carrito</Button>
       </CardActions>
     </Card>

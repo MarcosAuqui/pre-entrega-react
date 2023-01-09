@@ -6,15 +6,13 @@ import {Products} from "../../data/Products.js"
 
 import { useEffect } from "react"
 
-import { Counter } from "../counter/Counter"
+ import { Counter } from "../counter/Counter"
 
 import { ItemList } from "../itemList/ItemList"
 
 import { useParams } from "react-router-dom"
 
-import { AccordionMui } from "../accordionMui/AccordionMui"
 
-import { Loader } from "../loader/Loader"
 
 
 
@@ -25,8 +23,8 @@ export const ItemListContainer = ( {greeting} ) => {
   
   const [items, setItems] = useState( [] )
 
-  const [sePuedeEstarAca, setSePuedeEstarAca] =useState("")
-
+  // const [sePuedeEstarAca, setSePuedeEstarAca] =useState("")
+ 
   useEffect( () => {
     
     const productsFiltered = Products.filter(productos => productos.category === categoryName)
@@ -36,7 +34,7 @@ export const ItemListContainer = ( {greeting} ) => {
 
       setTimeout( () =>{
         resolve(categoryName ? productsFiltered : Products)
-      },3000)
+      },500)
 
       })
       task
@@ -51,11 +49,10 @@ export const ItemListContainer = ( {greeting} ) => {
   return (
     <div className= "container-items-light">
 
-      {items.length > 0 ? <ItemList items={items}/> : <Loader/>}
+     <ItemList items={items}/> 
 
       <Counter initial={1} stock={7}/>
 
-      <AccordionMui/>
 
     </div>
   )

@@ -1,4 +1,4 @@
-import { BsFillCartCheckFill } from 'react-icons/bs'
+// import { BsFillCartCheckFill } from 'react-icons/bs'
 import {Link} from "react-router-dom"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -7,7 +7,7 @@ import React from 'react'
 export const CardWidget = () => {
   return (
     
-    <Link to="/card">
+    <Link to="/cart">
 
       <div className="container-Carrito">
         {/* <BsFillCartCheckFill
