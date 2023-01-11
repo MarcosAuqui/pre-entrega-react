@@ -1,4 +1,5 @@
 // import { CustomButtom } from './components/customButtom/CustomButtom';
+// import { ItemDetailsContainer } from './components/itemDetails/ItemDetails';
 import { ItemDetailsContainer } from './components/itemDetailsContainer/ItemDetailsContainer';
 import { ItemListContainer } from './components/itemListContainer/ItemListContainer';
 import { Nav } from './components/navBar/Nav'	
@@ -24,7 +25,7 @@ function App() {
 
        <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
 
-       <Route path={`/itemDetails/:id`} element={<ItemDetailsContainer/>}/>
+       <Route path={`/itemDetail/:id`} element={<ItemDetailsContainer/>}/>
 
        <Route path="/checkout" element= {<Form/>}/>
 

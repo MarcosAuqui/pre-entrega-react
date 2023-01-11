@@ -35,7 +35,7 @@ export const ProductsCard = ({element}) => {
       </CardContent>
       <CardActions style={{display: "flex", justifyContent:"center"}}>
         
-        <Button size="small" variant="outlined">Agregar al carrito</Button>
+        <Link to={`/itemDetail/${element.id}`} style={{textDecoration: "none"}}><Button size="small" variant="outlined">Agregar al carrito</Button></Link>
       </CardActions>
     </Card>
 

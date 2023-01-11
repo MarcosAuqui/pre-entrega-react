@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-export const Counter = ({stock, initial = 1}) => {
+export const Counter = ({stock, initial = 1, onAdd}) => {
 
   const [counter, setCounter] = useState(initial)
 
@@ -21,9 +21,9 @@ export const Counter = ({stock, initial = 1}) => {
     counter > initial && setCounter(counter - 1)
   }
 
-  const onAdd= (quantity) => {
+ /*  const onAdd= (quantity) => {
     console.log("la cantidad es", quantity)
-  }
+  } */
 
 
   return (

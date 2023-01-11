@@ -2,7 +2,7 @@ import "./ItemListContainer.css"
 
 import { useState } from "react"
 
-import {Products} from "../../data/Products.js"
+import {products} from "../../data/products.js"
 
 import { useEffect } from "react"
 
@@ -27,13 +27,13 @@ export const ItemListContainer = ( {greeting} ) => {
  
   useEffect( () => {
     
-    const productsFiltered = Products.filter(productos => productos.category === categoryName)
+    const productsFiltered = products.filter(productos => productos.category === categoryName)
 
 
     const task = new Promise((resolve, reject) =>{
 
       setTimeout( () =>{
-        resolve(categoryName ? productsFiltered : Products)
+        resolve(categoryName ? productsFiltered : products)
       },500)
 
       })

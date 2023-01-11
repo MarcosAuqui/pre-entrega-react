@@ -1,31 +1,24 @@
-import { useState } from "react"
-import { useEffect } from "react"
-import { Products } from "../../data/Products"
+import React, { useEffect, useState } from 'react'
+import { products } from '../../data/products'
 import { useParams } from "react-router-dom"
-import { Counter } from "../counter/Counter"
+import { ItemDetails } from '../itemDetails/ItemDetails'
+
+
 
 export const ItemDetailsContainer = () => {
 
-  const {id} = useParams()
-
   const [product, setProduct] = useState({})
 
-  useEffect( () => {
+  const {id} = useParams()
 
-    const productSelected = Products.find( producto => producto.id === +id ) /* o producto.id === +id  o parseInt(id)*/
+  useEffect( ()=>{
+    const productSelected = products.find ( producto => producto.id === +id )
     setProduct(productSelected)
   }, [id])
 
-  console.log(product)
-
-
   return (
     <div>
-        <h2>{product.title}</h2>
-        <h2>{product.price}</h2>
-        <h2>{product.description}</h2>
-
-        <Counter />
+      <ItemDetails product= {product}/>
     </div>
   )
 }
