@@ -49,9 +49,7 @@ export const ItemListContainer = ( {greeting} ) => {
   return (
     <div className= "container-items-light">
 
-     <ItemList items={items}/> 
-
-      <Counter initial={1} stock={7}/>
+     <ItemList items={items}/>
 
 
     </div>

@@ -1,23 +1,23 @@
 // import { BsFillCartCheckFill } from 'react-icons/bs'
 import {Link} from "react-router-dom"
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-import React from 'react'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export const CardWidget = () => {
+
+
+  const {cart} = useContext( CartContext )
+
+
   return (
     
     <Link to="/cart">
 
       <div className="container-Carrito">
-        {/* <BsFillCartCheckFill
-          style={{
-          fontSize: "2rem",
-          color: "black"
-        }}/> */}
         <ShoppingCartIcon fontSize="large" color="warning"/>
         <div className="bubble-counter">
-          <span>12</span>
+          <span>{cart.length}</span>
         </div>
       </div>
 

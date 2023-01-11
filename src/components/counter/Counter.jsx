@@ -1,30 +1,23 @@
 import { useState } from 'react'
 
 
-export const Counter = ({stock, initial = 1, onAdd}) => {
+export const Counter = ({stock, initial = 0 , onAdd}) => {
 
   const [counter, setCounter] = useState(initial)
 
   const increment = ()=>{
-    /* if (counter < initial){
-      setCounter(counter + 1)
 
-    } */
     counter < stock && setCounter(counter +1)
     
   }
 
   const decrement = ()=>{
-    /* if (counter > initial){
-      setCounter(counter - 1)
-    } */
+
     counter > initial && setCounter(counter - 1)
+
   }
 
- /*  const onAdd= (quantity) => {
-    console.log("la cantidad es", quantity)
-  } */
-
+  
 
   return (
 
