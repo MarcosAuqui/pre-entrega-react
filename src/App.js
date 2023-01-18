@@ -7,6 +7,7 @@ import { Form } from './components/form/Form'
 import { BrowserRouter, Routes, Route,} from  "react-router-dom"
 import { Cart } from './components/cart/Cart';
 import { CartContextProvider } from './context/CartContext';
+import { FormikForm } from './components/formik/FormikForm';
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
        <Route path='*' element={<h1>URL no existe</h1>}/>
 
        <Route path='/cart' element={<Cart/>}/>
+ 
+       <Route path='/formik' element={<FormikForm/>}/>
 
       </Routes>
 

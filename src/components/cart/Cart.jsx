@@ -3,11 +3,17 @@ import { CartContext } from "../../context/CartContext"
 import swal from "sweetalert"
 import { ItemCart } from "../itemCart/ItemCart"
 import {NoInfo} from "../noInfo/NoInfo"
+import { Button  } from "@mui/material"
+import { FormikForm } from "../formik/FormikForm"
+import { Form } from "formik"
+import { useState } from "react"
 
 
 export const Cart = () => {
 
     const {cart, clearCart, getTotalPrice} = useContext(CartContext)
+
+    const [buy, setBuy] = useState(false)
 
     const clear = () => {
 
@@ -31,6 +37,7 @@ export const Cart = () => {
 
     }
 
+    
 
     // if(cart.length < 1){
     //   return <h2>no hay elementos</h2>
@@ -38,7 +45,10 @@ export const Cart = () => {
 
     // console.log(cart)
   return (
+     
+
     <div className="cart-container">
+      
 
       <div className="container-items">
 
@@ -57,13 +67,21 @@ export const Cart = () => {
         <h3>Cantidad de productos:</h3>
         <h3>Precio total: {getTotalPrice() > 0 ? getTotalPrice() : 0}</h3>
         
-
+        {
+          buy ? (
+          <FormikForm cart={cart}/>
+          ) : (
+            <div className="btn-cart">
+             <Button variant="contained" onClick= {() => setBuy(true)} >
+               Comprar
+             </Button>
+             <Button onClick={ () => clear()} variant="contained">
+               Vaciar carrito
+             </Button>
+           </div>
+         )}
       </div>
-
-      <div className="cart-btn">
-        <button onClick={ () => clear() }>Limpiar carrito</button>
-      </div>
-
+      
     </div>
   )
 }
