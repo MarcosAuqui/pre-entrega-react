@@ -8,14 +8,17 @@ export const CartContextProvider = ({children}) => {
 
   const [cart, setCart] = useState( [] )
 
+  const isInCart = (item => {
+
+    return cart.some(elemento => elemento.id === item.id) 
+
+  })
+
+
+
   const addToCart = (elemento) =>{
 
-    const isInCart = (item => {
-
-      return cart.some(elemento => elemento.id === item.id) 
-
-    })
-
+  
     if(isInCart(elemento)){
 
       let newArray = cart.map( product =>{
@@ -25,7 +28,7 @@ export const CartContextProvider = ({children}) => {
           let newProduct = {
 
             ...product,
-            quantity: product.quantity + elemento.quantity
+            quantity: elemento.quantity
 
           }
           return newProduct
@@ -43,9 +46,10 @@ export const CartContextProvider = ({children}) => {
 
     }
 
-    
 
   }
+
+
 
   const clearCart = () => {
 
@@ -53,13 +57,44 @@ export const CartContextProvider = ({children}) => {
 
   }
 
+  const getQuantityByID = ( id ) => {
+
+    const product = cart.find(elemento => elemento.id === id)
+
+  return product?.quantity
+
+  }
+
+  const getTotalPrice = () =>{
+
+    const total = cart.reduce( (acc, element) => {
+      
+      return acc + (element.price * element.quantity)
+
+    }, 0)
+
+    return total
+   // otra solucion 
+    /* let acc = 0
+    for ( let i = 0 < cart.length; i++)
+    acc = acc + (cart[i].price) * cart[i].quantity
+     return acc
+   */
+
+  }
+
+
+
   const data = { 
 
     cart,
     addToCart,
     clearCart,
+    getQuantityByID,
+    getTotalPrice, 
   }
 
+  
 
   return (
     <CartContext.Provider value={ data } >

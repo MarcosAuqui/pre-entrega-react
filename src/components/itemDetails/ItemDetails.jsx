@@ -5,7 +5,7 @@ import { Counter } from "../counter/Counter"
 
 export const ItemDetails = ({product}) => {
 
-  const { addToCart } = useContext(CartContext)   
+  const { addToCart, getQuantityByID } = useContext(CartContext)   
 
   const onAdd = (quantity) => {
 
@@ -18,6 +18,7 @@ export const ItemDetails = ({product}) => {
     
   }
 
+  const  quantity = getQuantityByID(product.id)
 
   return (
     <div>
@@ -29,7 +30,7 @@ export const ItemDetails = ({product}) => {
            
         </div>
 
-        <Counter onAdd={onAdd} stock={product.stock}/>
+        <Counter onAdd={onAdd} stock={product.stock} initial= {quantity}/>
 
     </div>
   )
