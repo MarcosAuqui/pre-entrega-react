@@ -2,11 +2,7 @@ import "./ItemListContainer.css"
 
 import { useState } from "react"
 
-import {products} from "../../data/products.js"
-
 import { useEffect } from "react"
-
-import { Counter } from "../counter/Counter"
 
 import { ItemList } from "../itemList/ItemList"
 
@@ -16,7 +12,6 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 import { getDocs, collection, query, where } from "firebase/firestore"
 import { db } from "../../fireBaseConfig"
-import { Category } from "@mui/icons-material"
 
 
 

@@ -21,8 +21,11 @@ export const ItemDetails = ({product}) => {
   const  quantity = getQuantityByID(product.id)
 
   return (
-    <div>
-        <div>
+    <div className='containerItemDetails'>
+      <div className="containerImg">
+        <img src={product.img} alt="" />
+      </div>
+        <div className='containerDetails'>
 
            <h2>{product.title}</h2>
            <h2>{product.price}</h2>
