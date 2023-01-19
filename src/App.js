@@ -34,7 +34,7 @@ function App() {
 
        <Route path='/cart' element={<Cart/>}/>
  
-       <Route path='/formik' element={<FormikForm/>}/>
+       {/* <Route path='/formik' element={<FormikForm/>}/> */}
 
       </Routes>
 

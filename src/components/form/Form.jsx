@@ -1,33 +1,32 @@
 import { useState } from "react"
+import { addDoc, collection, serverTimestamp, doc, updateDoc } from "firebase/firestore"
+import { db } from "../../fireBaseConfig"
 
 
 
-export const Form = () => {
+export const Form = ( { cart, getTotalPrice, setOrderId, clearCart } ) => {
 
+    const [userData, setUserData] = useState({name: "", phone:"", email:"",})
 
-    // const [user, setUser] = useState("")
-
-    const [userData, setUserData] = useState({name: "", lastName:""})
+    const total = getTotalPrice()
 
     const handleSubmit = (event) => {
-
         event.preventDefault()
-        console.log(userData)
 
-    }
+        const order = {
+          buyer: userData,
+          items: cart,
+          total: total,
+          date: serverTimestamp(), 
+        }
 
-    /* const handleChangeName = (event) => {
-      setUserData({...userData, name: event.target.value})
-    } */
-    
-   const handleKey= (event) =>{
-    
-    if(event.key !== "a" && event.key !== "e" && event.key !== "i" && event.key !== "o" && event.key !== "u"){
-      console.log(event.key)
-    }else{
-      event.preventDefault()
+        const orderCollection = collection(db, "orders")
+        addDoc(orderCollection, order)
+         .then( res => setOrderId(res.id) )
+
+        clearCart( )
     }
-   }
+ 
 
   return (
     <div>
@@ -38,17 +37,25 @@ export const Form = () => {
              name="name"  
              onChange={(event) => setUserData({...userData, name: event.target.value})}
              value= {userData.name}
-             onKeyDown= {handleKey}
+             />
+
+            <input
+               type="text"
+               placeholder="Ingrese su telefono"
+               name="phone"
+               onChange={(event) => setUserData( {...userData, phone: event.target.value} )}
+               value={userData.phone}
              />
 
             <input 
-            type="text" 
-            placeholder="Ingrese su nombre apellido"
-            name="lastName" 
-            onChange={(event) => setUserData({...userData, lastName: event.target.value })} 
-            value={userData.lastName}/>
+              type="text" 
+              placeholder="Ingrese su email"
+              name="email" 
+              onChange={(event) => setUserData({...userData, email: event.target.value })} 
+              value={userData.email}
+            />
 
-            <button type="sumbit">Enviar</button>
+            <button type="sumbit">Finalizar compra</button>
         </form>
     </div>
   )
