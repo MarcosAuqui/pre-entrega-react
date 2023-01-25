@@ -23,7 +23,7 @@ export const ItemListContainer = ( {greeting} ) => {
   const [items, setItems] = useState( [] )
 
   const [isLoading, setIsLoading] = useState(false)
-  console.log(categoryName)
+  // console.log(categoryName)
 
   
 

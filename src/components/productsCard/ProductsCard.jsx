@@ -2,12 +2,13 @@
 import { Link } from "react-router-dom";
 
 import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@mui/material';
+import { db } from "../../fireBaseConfig";
 
 
 
 
 
-export const ProductsCard = ({element}) => {
+export const ProductsCard = ({element,  }) => {
 
   return (
      /* <Box className={styles.card}>

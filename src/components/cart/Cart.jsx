@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { useState } from "react"
+import { useEffect } from "react"
 import {Link} from "react-router-dom"
 
 import { CartContext } from "../../context/CartContext"
@@ -12,6 +13,7 @@ import { Form } from "../form/Form"
 
 import { db } from "../../fireBaseConfig"
 import { collection, doc, getDoc } from "firebase/firestore"
+import { Orders } from "../orders/Orders"
 
 
 
@@ -25,9 +27,11 @@ export const Cart = () => {
 
     const [orderID, setOrderID] = useState(null)
 
+    const [order, setOrder] = useState({})
+
 
     const openForm = () => {
-      if(cart.lenght < 0){
+      if(cart.length > 0){
         setBuy(true)
       }else{
         alert("no hay productos para comprar.")
@@ -35,6 +39,25 @@ export const Cart = () => {
       
     }
 
+    
+    useEffect( () => {
+      
+
+      if(orderID){
+        const orderCollection = collection(db, "orders")
+      const ref= doc( orderCollection, orderID )
+
+      getDoc(ref) 
+       .then( res => {
+        setOrder({
+          id: res.id,
+          ...res.data()
+        })
+       })
+      }
+    },[order.id] )
+
+    // console.log(order)
 
     // const [order, setOrder] = useState({})
 
@@ -53,7 +76,7 @@ export const Cart = () => {
           swal("Carrito borrado con exito!", {
             icon: "success",
           })
-          clearCart()
+          clearCart() 
         } else {
           swal("Cancelaste la operacion")
         }
@@ -65,6 +88,7 @@ export const Cart = () => {
     if(orderID){
       return <div>
         <h1>Tu orden de compra es: {orderID}</h1>
+        <Orders order={order}/>
         <Link to={"/"}> <Button variant="contained">Volver a comprar</Button> </Link>
       </div>
     }
@@ -87,9 +111,10 @@ export const Cart = () => {
 
       <div className="cart-info">
 
-        <h2>Cart description </h2>
-        <h3>Cantidad de productos:</h3>
-        <h3>Precio total: {getTotalPrice() > 0 ? getTotalPrice() : 0}</h3>
+        {cart.length > 0 && <h2>Cart description </h2>}
+        {cart.length > 0 && <h3>Cantidad de productos:</h3>}
+        {cart.length > 0 && <h3>Precio total: {getTotalPrice() > 0 ? getTotalPrice() : 0}</h3>}
+        
         
         {
           buy ? (
@@ -100,7 +125,7 @@ export const Cart = () => {
             clearCart= {clearCart}
           />
           ) : ( 
-            cart.lenght > 0 &&
+            
             <div className="btn-cart">
               <Button variant="contained" onClick= { openForm } >
                 Comprar

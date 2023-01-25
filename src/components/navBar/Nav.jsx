@@ -39,10 +39,10 @@ export const Nav = () => {
               </li>
             </ul>
       
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Buscar Articulo" aria-label="Search"/>
               <button className="btn btn-outline-success" type="submit">Buscar</button>
-            </form> 
+            </form>  */}
           </div>
           <CardWidget/>
           

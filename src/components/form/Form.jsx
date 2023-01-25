@@ -24,8 +24,18 @@ export const Form = ( { cart, getTotalPrice, setOrderId, clearCart } ) => {
         addDoc(orderCollection, order)
          .then( res => setOrderId(res.id) )
 
+        //  const orderDoc = doc(db,  "pructs", 1)
+        //  updateDoc(orderDoc, {stoock: 3})
+
+        cart.map( product => {
+          updateDoc( doc(db,  "pructs", product.id), {stock: product.stock - product.quantity})
+        })
+
         clearCart( )
     }
+
+
+
  
 
   return (
